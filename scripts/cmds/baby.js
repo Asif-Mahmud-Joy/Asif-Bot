@@ -5,7 +5,7 @@ const baseApiUrl = async () => {
 
 module.exports.config = {
     name: "bby",
-    aliases: ["baby", "bbe", "babe", "jan","Jan","Bow","bow","Bby","bbu","pookie","Pookie"],
+    aliases: ["baby","bbe","babe","jan","Jan","Bow","bow","Bby","bbu","pookie","Pookie"],
     version: "6.9.0",
     author: "dipto",
     countDown: 0,
@@ -65,7 +65,7 @@ module.exports.onStart = async ({
                 return api.sendMessage(`Total Teach = ${data.length}\n👑 | List of Teachers of baby\n${output}`, event.threadID, event.messageID);
             } else {
                 const d = (await axios.get(`${link}?list=all`)).data;
-                return api.sendMessage(`❇ | Total Teach = ${d.length || "api off"}\n♻ | Total Response = ${d.responseLength || "api off"}`, event.threadID, event.messageID);
+                return api.sendMessage(`❇️ | Total Teach = ${d.length || "api off"}\n♻️ | Total Response = ${d.responseLength || "api off"}`, event.threadID, event.messageID);
             }
         }
 
@@ -165,6 +165,7 @@ module.exports.onChat = async ({
             const arr = body.replace(/^\S+\s*/, "")
             const randomReplies = ["😚","Yes 😀, I am here","What's up😉?","Bolo jaan ki korte pari tomar jonno✨🙃","Jaan 💖, ID te ekta follow chai, bas 🤭✨","😘🫶🏻","হ্যাঁ 🤗, আমি এখানে আছি। কি খবর বলো? সব ঠিকঠাক তো? 💞","বলো জান, তোমার জন্য কী করতে পারি? 💖","আমি আবাল দের সাতে কথা বলি না, ok 😒","জান বাল ফালাইবা-🙂🥱🙆‍♂","oii-🥺🥹-এক🥄 চামচ ভালোবাসা দিবা-🤏🏻🙂","janu-😇💕-একটা চুমু দেবে-💋🥰","babu-🌙✨-রাতের স্বপ্নে দেখা দেবে-😴💖","jaan-🌹🥰-এক ফোটা হাসি পাঠাবে-😊✉️","tumi-🌟😌-আমার ভালোবাসার কারণ-🥰🎶","love-😍🔥-তুমি ছাড়া নিশ্বাস টা থেমে যায়-😮‍💨💖","love-❤️🥺-চোখে চোখ রাখলে হারিয়ে যাবো-😍🌟","😌-আমি শুধু তোমার কথা ভাববো-💭🌟"];
             if (!arr) {
+
                 await api.sendMessage(randomReplies[Math.floor(Math.random() * randomReplies.length)], event.threadID, (error, info) => {
                     if (!info) message.reply("info obj not found")
                     global.GoatBot.onReply.set(info.messageID, {
